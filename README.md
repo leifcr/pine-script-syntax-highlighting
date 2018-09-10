@@ -4,7 +4,7 @@
 
 This extension adds Pine Script Syntax Hightlighting for VS Code
 
-\!\[feature X\]\(images/pine_example.png\)
+![Pine Example](images/pine_example.png)
 
 ## Pull requests
 
