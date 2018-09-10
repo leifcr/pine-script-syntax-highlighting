@@ -9,3 +9,7 @@ macd = fastMA - slowMA
 signal = sma(macd, 9)
 plot(macd, color=blue)
 plot(signal, color=orange)
+n1 = input(90, "Setting 1")
+n2 = input(6, "Setting 2")
+
+testfunction(src) => ema(n1, n2)
