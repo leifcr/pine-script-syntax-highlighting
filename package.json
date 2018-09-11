@@ -2,7 +2,7 @@
     "name": "pine-script-syntax-highlighting",
     "displayName": "Pine Script Syntax Highlighting",
     "description": "Syntax Highlighting for Pine Script",
-    "version": "0.1.2",
+    "version": "0.1.3",
     "publisher": "leifcr",
     "license": "MIT",
     "engines": {
@@ -24,6 +24,7 @@
             "path": "./syntaxes/pine.tmLanguage.json"
         }]
     },
+    "icon": "images/pinetreeicon.png",
     "repository": {
         "type": "git",
         "url": "https://github.com/leifcr/pine-script-syntax-highlighting.git"
