@@ -4,7 +4,7 @@
 
 ## Features
 
-This extension adds Pine Script Syntax Hightlighting for VS Code
+This extension adds Pine Script Syntax Hightlighting for VS Code. Intended for Pine Script coders so it's easier to use the Visual Studio Code IDE to help write Pine Script.
 
 ![Pine Example](images/pine_example.png)
 
