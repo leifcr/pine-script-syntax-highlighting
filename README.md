@@ -18,3 +18,5 @@ Do share good strategies or inidcators.
 
 
 Note: This extension is provided as-is. It doesn't do tricks for your trading. Only colors what you write...
+
+Thanks to @Jos512 for the Pine4 updates
