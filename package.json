@@ -2,7 +2,7 @@
     "name": "pine-script-syntax-highlighting",
     "displayName": "Pine Script Syntax Highlighting",
     "description": "Syntax Highlighting for Pine Script",
-    "version": "0.1.4",
+    "version": "0.1.5",
     "publisher": "leifcr",
     "license": "MIT",
     "engines": {

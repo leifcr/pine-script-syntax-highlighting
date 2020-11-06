@@ -44,12 +44,12 @@
               "match": "\\\\.",
               "name": "constant.character.escaped.pine"
             }
-          ]    
+          ]
         },
         {
           "begin": "'",
           "beginCaptures": {
-            "1": { 
+            "1": {
 							"name": "punctuation.definition.string.begin.pine"
             }
           },
@@ -65,57 +65,57 @@
               "match": "\\\\.",
               "name": "constant.character.escaped.pine"
             }
-          ]          
+          ]
         }
       ]
     },
     "functions": {
       "patterns": [
         {
-          "match": "\\b(abs|acos|alertcondition|alma|asin|atan|atr|avg|barcolor|barssince|bb|bbw|bgcolor|bool|cci|ceil|change|cmo|cog|color|color\\.new|correlation|cos|cross|crossover|crossunder|cum|dayofmonth|dayofweek|dev|dmi|ema|exp|falling|fill|financial|fixnan|float|floor|heikinashi|highest|highestbars|hline|hma|hour|iff|input|int|kagi|kc|kcw|label|line|linebreak|linreg|log|log10|lowest|lowestbars|macd|max|max_bars_back|mfi|min|minute|mom|month|na|nz|offset|percentile_linear_interpolation|percentile_nearest_rank|pivothigh|pivotlow|plot|plotarrow|plotbar|plotcandle|plotchar|plotshape|pointfigure|pow|quandl|renko|rising|rma|roc|round|rsi|sar|second|security|sign|sin|sma|sqrt|stdev|stoch|str\\.replace_all|strategy|string|study|sum|supertrend|swma|tan|tickerid|time|timestamp|tostring|tr|tsi|valuewhen|variance|vwma|weekofyear|wma|wpr|year)(?=\\()",
+          "match": "\\b(abs|acos|alertcondition|alma|asin|atan|atr|avg|bar(color|since)|bb|bbw|bgcolor|bool|cci|ceil|change|cmo|cog|color|color\\.new|correlation|cos|cross|crossover|crossunder|cum|dayofmonth|dayofweek|dev|dmi|ema|exp|falling|fill|financial|fixnan|float|floor|heikinashi|highest|highestbars|hline|hma|hour|iff|input|int|kagi|kc|kcw|label|line|linebreak|linreg|log|log10|lowest|lowestbars|macd|max|max_bars_back|mfi|min|minute|mom|month|na|nz|offset|percentile_linear_interpolation|percentile_nearest_rank|pivothigh|pivotlow|plot|plotarrow|plotbar|plotcandle|plotchar|plotshape|pointfigure|pow|quandl|renko|rising|rma|roc|round|rsi|sar|second|security|sign|sin|sma|sqrt|stdev|stoch|str\\.replace_all|strategy|string|study|sum|supertrend|swma|tan|tickerid|time|timestamp|tostring|tr|tsi|valuewhen|variance|vwma|weekofyear|wma|wpr|year)(?=\\()",
           "captures": {
-						"1": { 
-								"name": "support.function.pine" 
+						"1": {
+								"name": "support.function.pine"
 						}
 					}
         },
         {
           "match": "\\barray\\.(avg|clear|concat|copy|covariance|fill|get|includes|indexof|insert|lastindexof|max|median|min|mode|new_bool|new_color|new_float|new_int|pop|push|remove|reverse|set|shift|size|slice|sort|standardize|stdev|sum|unshift|variance)(?=\\()",
           "captures": {
-						"1": { 
-								"name": "support.function.pine" 
+						"1": {
+								"name": "support.function.pine"
 						}
 					}
         },
         {
           "match": "\\blabel\\.(delete|get_text|get_x|get_y|new|set_color|set_size|set_text|set_textalign|set_textcolor|set_tooltip|set_x|set_xloc|set_xy|set_y|set_yloc)(?=\\()",
           "captures": {
-						"1": { 
-								"name": "support.function.pine" 
+						"1": {
+								"name": "support.function.pine"
 						}
 					}
         },
         {
           "match": "\\bline\\.(delete|get_price|get_x1|get_x2|get_y1|get_y2|new|set_color|set_extend|set_style|set_width|set_x1|set_x2|set_xloc|set_xy1|set_xy2|set_y1|set_y2)(?=\\()",
           "captures": {
-						"1": { 
-								"name": "support.function.pine" 
+						"1": {
+								"name": "support.function.pine"
 						}
 					}
         },
         {
           "match": "\\bstrategy\\.(cancel|cancel_all|close|close_all|entry|exit|order)(?=\\()",
           "captures": {
-						"1": { 
-								"name": "support.function.pine" 
+						"1": {
+								"name": "support.function.pine"
 						}
 					}
         },
         {
           "match": "\\bstrategy\\.risk\\.(allow_entry_in|max_cons_loss_days|max_drawdown|max_intraday_filled_orders|max_intraday_loss|max_position_size)(?=\\()",
           "captures": {
-						"1": { 
-								"name": "support.function.pine" 
+						"1": {
+								"name": "support.function.pine"
 						}
 					}
         },
@@ -126,8 +126,8 @@
         {
           "match": "([a-zA-Z_][a-zA-Z0-9_]*)\\(.*\\)\\s(=>)\\s",
           "captures": {
-						"1": { 
-							"name": "support.function.pine" 
+						"1": {
+							"name": "support.function.pine"
 						},
 						"2": {
 							"name": "keyword.operator.assignment.pine"
@@ -143,7 +143,7 @@
           "name": "constant.language.pine"
         },
         {
-          "match": "\\b(accdist|bar_index|close|dayofmonth|dayofweek|high|hl2|hlc3|hour|iii|low|minute|month|na|nvi|obv|ohlc4|open|pvi|pvt|second|time|time_close|timenow|tr|volume|vwap|wad|weekofyear|wvad|year|)\\b",
+          "match": "\\b(accdist|bar_index|close|dayofmonth|dayofweek|high|hl2|hlc3|hour|iii|low|minute|month|na|nvi|obv|ohlc4|open|pvi|pvt|second|time|time_close|timenow|tr|volume|vwap|wad|weekofyear|wvad|year)\\b",
           "name": "constant.language.pine"
         },
         {
@@ -273,7 +273,7 @@
         {
           "match": "\\b([0-9]+)\\b",
           "name": "constant.numeric.pine"
-        }    
+        }
       ]
     },
     "operators": {
@@ -297,7 +297,7 @@
         {
           "match": "=",
           "name": "keyword.operator.assignment.pine"
-        }        
+        }
       ]
     },
     "keywords": {
