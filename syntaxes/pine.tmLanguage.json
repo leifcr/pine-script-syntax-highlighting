@@ -1,196 +1,196 @@
 {
-    "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
-    "name": "Pine Script",
-    "patterns": [
-        {
-            "match": "//.*",
-            "name": "comment.line.double-slash.pine"
-        },
-        {
-            "include": "#strings"
-        },
-        {
-            "include": "#keywords"
-        },
-        {
-            "include": "#constants"
-        },
-        {
-            "include": "#variables"
-        },
-        {
-            "include": "#functions"
-        },
-        {
-            "include": "#operators"
-        }
-    ],
-    "repository": {
-        "strings": {
-            "patterns": [
-                {
-                    "begin": "\"",
-                    "beginCaptures": {
-                        "1": {
-                            "name": "punctuation.definition.string.begin.pine"
-                        }
-                    },
-                    "end": "\"",
-                    "endCaptures": {
-                        "1": {
-                            "name": "punctuation.definition.string.end.pine"
-                        }
-                    },
-                    "name": "string.quoted.double.pine",
-                    "patterns": [
-                        {
-                            "match": "\\\\.",
-                            "name": "constant.character.escaped.pine"
-                        }
-                    ]
-                },
-                {
-                    "begin": "'",
-                    "beginCaptures": { 
-                        "1": {
-                            "name": "punctuation.definition.string.begin.pine"
-                        }
-                    },
-                    "end": "'",
-                    "endCaptures": {
-                        "1": {
-                            "name": "punctuation.definition.string.end.pine"
-                        }
-                    },
-                    "name": "string.quoted.single.pine",
-                    "patterns": [
-                        {
-                            "match": "\\\\.",
-                            "name": "constant.character.escaped.pine"
-                        }
-                    ]
-                }
-            ]
-        },
-        "keywords": {
-            "patterns": [
-                {
-                    "match": "\\b(if|else|continue|break|for|while|return|export|import|as)\\b",
-                    "name": "keyword.control.pine"
-                }
-            ]
-        },
-        "constants": {
-            "patterns": [
-                {
-                    "match": "\\b(ta|math|input|array|label|adjustment|barmerge|barstate|currency|color|format|location|scale|session|shape|size|strategy|syminfo)\\b(?!\\()(?=\\.)",
-                    "name": "support.class.pine"
-                },
-                {
-                    "match": "\\b(risk|commission|direction|oca)\\b(?!\\()(?=\\.)",
-                    "name": "support.class.pine"
-                },
-                {
-                    "match": "\\b(true|false)\\b(?!\\()",
-                    "name": "constant.language.pine"
-                },
-                {
-                    "match": "\\b(open|high|low|close|volume|na|period)\\b(?!\\()",
-                    "name": "constant.language.pine"
-                },
-                {
-                    "match": "\\b(monday|tuesday|wednesday|thursday|friday|saturday|sunday|second|minute|hour|month|dayofweek|dayofmonth|weekofyear|year)\\b(?!\\()",
-                    "name": "constant.language.pine"
-                },
-                {
-                    "match": "\\b(line|linebr|histogram|cross|area|areabr|columns|circles)\\b(?!\\()",
-                    "name": "constant.language.pine"
-                },
-                {
-                    "match": "\\bis(daily|dwm|intraday|minutes|monthly|seconds|weekly)?\\b(?!\\()",
-                    "name": "constant.language.pine"
-                },
-                {
-                    "match": "\\b(string|symbol|bool|integer|int|float|simple|series)\\b(?!\\()",
-                    "name": "constant.language.pine"
-                },
-                {
-                    "match": "\\b(dotted|dashed)\\b(?!\\()",
-                    "name": "constant.language.pine"
-                },
-                {
-                    "match": "\\b(aqua|black|silver|gray|white|maroon|red|purple|fuchsia|green|lime|olive|yellow|navy|blue|teal|orange)\\b(?!\\()",
-                    "name": "constant.language.pine"
-                },
-                {
-                    "match": "\\b(accdist|hl2|hlc3|interval|n|ohlc4|resolution|session|solid|source|stepline|ticker|tickerid|time|timenow|tr|vwap)\\b(?!\\()",
-                    "name": "constant.language.pine"
-                },
-                {
-                    "match": "\\b(dividends|none|splits|gaps_off|gaps_on|lookahead_off|lookahead_on|isconfirmed|isfirst|ishistory|islast|isnew|isrealtime|AUD|CAD|CHF|EUR|GBP|HKD|JPY|NOK|NONE|NZD|RUB|SEK|SGD|TRY|USD|ZAR|abovebar|absolute|belowbar|bottom|top|left|right|extended|regular|arrowdown|arrowup|circle|diamond|flag|labeldown|labelup|square|triangledown|triangleup|xcross|auto|huge|large|normal|small|tiny|cash|closedtrades|cash_per_contract|cash_per_order|percent|price|all|long|short|equity|eventrades|fixed|grossloss|grossprofit|initial_capital|losstrades|max_contracts_held_all|max_contracts_held_long|max_contracts_held_short|max_drawdown|netprofit|cancel|reduce|openprofit|opentrades|percent_of_equity|position_avg_price|position_entry_name|position_size|wintrades|mintick|pointvalue|prefix|root|timezone)\\b(?!\\()",
-                    "name": "constant.language.pine"
-                },
-                {
-                    "match": "\\b([0-9]+)\\b",
-                    "name": "constant.numeric.pine"
-                },
-                {
-                    "match": "#[a-fA-F0-9]{6}",
-                    "name": "contstant.other.pine"
-                }
-            ]
-        },
-        "variables": {
-            "patterns": [
-                {
-                    "match": "[a-zA-Z_][a-zA-Z0-9_]*\\s*(?=\\=)",
-                    "name": "variable.other.pine"
-                }
-            ]
-        },
-        "functions": {
-            "patterns": [
-                {
-                    "match": "\\b(abs|acros|alertcondition|alma|asin|atan|atr|avg|barcolor|barssince|bgcolor|cci|ceil|change|cog|color|correlation|cos|cross|crossover|crossunder|cum|dayofmonth|dayofweek|dev|ema|exp|falling|fill|fixnan|floor|heikinashi|highest|highestbars|hline|hour|iff|indicator|input|kagi|library|linebreak|linreg|log|log10|lowest|lowestbars|macd|max|min|minute|mom|month|na|nz|offset|percentile_linear_interpolation|percentile_nearest_rank|percentrank|pivothigh|pivotlow|plot(arrow|bar|candle|char|shape)?|pointfigure|pow|renko|rising|rma|roc|round|rsi|sar|second|security|sign|sin|sma|sqrt|stdev|stoch|strategy|cancel|cancel_all|close|close_all|entry|exit|order|allow_entry_in|max_cons_loss_days|max_intraday_filled_orders|max_intraday_loss|max_position_size|study|sum|swma|tan|tickerid|time|timestamp|tostring|tr|tsi|valuewhen|variance|vwap|vwma|weekofyear|wma|year)+?(?=\\()",
-                    "name": "entity.name.function.pine"
-                },
-                {
-                    "match": "([a-zA-Z_][a-zA-Z0-9_]*)\\(.*\\)\\s(=>)\\s",
-                    "captures": {
-                        "1": {
-                            "name": "support.function.pine"
-                        },
-                        "2": {
-                            "name": "keyword.operator.assignment.pine"
-                        }
-                    }
-                }
-            ]
-        },
-        "operators": {
-            "patterns": [
-                {
-                    "match": "(\\-|\\+|\\*|/|%)",
-                    "name": "keyword.operator.arithmetic.pine"
-                },
-                {
-                    "match": "(==|!=|<=|>=|<|>)",
-                    "name": "keyword.operator.comparison.pine"
-                },
-                {
-                    "match": "(\\?|\\:)",
-                    "name": "keyword.operator.ternary.pine"
-                },
-                {
-                    "match": "\\b(and|or|not)\\b",
-                    "name": "keyword.operator.logical.pine"
-                },
-                {
-                    "match": "=",
-                    "name": "keyword.operator.assignment.pine"
-                }
-            ]
-        }
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Pine Script",
+  "patterns": [
+    {
+      "match": "//.*",
+      "name": "comment.line.double-slash.pine"
     },
-    "scopeName": "source.pine"
+    {
+      "include": "#strings"
+    },
+    {
+      "include": "#keywords"
+    },
+    {
+      "include": "#constants"
+    },
+    {
+      "include": "#variables"
+    },
+    {
+      "include": "#functions"
+    },
+    {
+      "include": "#operators"
+    }
+  ],
+  "repository": {
+    "strings": {
+      "patterns": [
+        {
+          "begin": "\"",
+          "beginCaptures": {
+            "1": {
+              "name": "punctuation.definition.string.begin.pine"
+            }
+          },
+          "end": "\"",
+          "endCaptures": {
+            "1": {
+              "name": "punctuation.definition.string.end.pine"
+            }
+          },
+          "name": "string.quoted.double.pine",
+          "patterns": [
+            {
+              "match": "\\\\.",
+              "name": "constant.character.escaped.pine"
+            }
+          ]
+        },
+        {
+          "begin": "'",
+          "beginCaptures": {
+            "1": {
+              "name": "punctuation.definition.string.begin.pine"
+            }
+          },
+          "end": "'",
+          "endCaptures": {
+            "1": {
+              "name": "punctuation.definition.string.end.pine"
+            }
+          },
+          "name": "string.quoted.single.pine",
+          "patterns": [
+            {
+              "match": "\\\\.",
+              "name": "constant.character.escaped.pine"
+            }
+          ]
+        }
+      ]
+    },
+    "keywords": {
+      "patterns": [
+        {
+          "match": "\\b(if|else|continue|break|for|while|return|export|import|as)\\b",
+          "name": "keyword.control.pine"
+        }
+      ]
+    },
+    "constants": {
+      "patterns": [
+        {
+          "match": "\\b(ta|math|input|array|label|adjustment|barmerge|barstate|currency|color|format|location|scale|session|shape|size|strategy|syminfo)\\b(?!\\()(?=\\.)",
+          "name": "support.class.pine"
+        },
+        {
+          "match": "\\b(risk|commission|direction|oca)\\b(?!\\()(?=\\.)",
+          "name": "support.class.pine"
+        },
+        {
+          "match": "\\b(true|false)\\b(?!\\()",
+          "name": "constant.language.pine"
+        },
+        {
+          "match": "\\b(open|high|low|close|volume|na|period)\\b(?!\\()",
+          "name": "constant.language.pine"
+        },
+        {
+          "match": "\\b(monday|tuesday|wednesday|thursday|friday|saturday|sunday|second|minute|hour|month|dayofweek|dayofmonth|weekofyear|year)\\b(?!\\()",
+          "name": "constant.language.pine"
+        },
+        {
+          "match": "\\b(line|linebr|histogram|cross|area|areabr|columns|circles)\\b(?!\\()",
+          "name": "constant.language.pine"
+        },
+        {
+          "match": "\\bis(daily|dwm|intraday|minutes|monthly|seconds|weekly)?\\b(?!\\()",
+          "name": "constant.language.pine"
+        },
+        {
+          "match": "\\b(string|symbol|bool|integer|int|float|simple|series)\\b(?!\\()",
+          "name": "constant.language.pine"
+        },
+        {
+          "match": "\\b(dotted|dashed)\\b(?!\\()",
+          "name": "constant.language.pine"
+        },
+        {
+          "match": "\\b(aqua|black|silver|gray|white|maroon|red|purple|fuchsia|green|lime|olive|yellow|navy|blue|teal|orange)\\b(?!\\()",
+          "name": "constant.language.pine"
+        },
+        {
+          "match": "\\b(accdist|hl2|hlc3|interval|n|ohlc4|resolution|session|solid|source|stepline|ticker|tickerid|time|timenow|tr|vwap)\\b(?!\\()",
+          "name": "constant.language.pine"
+        },
+        {
+          "match": "\\b(dividends|none|splits|gaps_off|gaps_on|lookahead_off|lookahead_on|isconfirmed|isfirst|ishistory|islast|isnew|isrealtime|AUD|CAD|CHF|EUR|GBP|HKD|JPY|NOK|NONE|NZD|RUB|SEK|SGD|TRY|USD|ZAR|abovebar|absolute|belowbar|bottom|top|left|right|extended|regular|arrowdown|arrowup|circle|diamond|flag|labeldown|labelup|square|triangledown|triangleup|xcross|auto|huge|large|normal|small|tiny|cash|closedtrades|cash_per_contract|cash_per_order|percent|price|all|long|short|equity|eventrades|fixed|grossloss|grossprofit|initial_capital|losstrades|max_contracts_held_all|max_contracts_held_long|max_contracts_held_short|max_drawdown|netprofit|cancel|reduce|openprofit|opentrades|percent_of_equity|position_avg_price|position_entry_name|position_size|wintrades|mintick|pointvalue|prefix|root|timezone)\\b(?!\\()",
+          "name": "constant.language.pine"
+        },
+        {
+          "match": "\\b([0-9]+)\\b",
+          "name": "constant.numeric.pine"
+        },
+        {
+          "match": "#[a-fA-F0-9]{6}",
+          "name": "contstant.other.pine"
+        }
+      ]
+    },
+    "variables": {
+      "patterns": [
+        {
+          "match": "[a-zA-Z_][a-zA-Z0-9_]*\\s*(?=\\=)",
+          "name": "variable.other.pine"
+        }
+      ]
+    },
+    "functions": {
+      "patterns": [
+        {
+          "match": "\\b(abs|acros|alertcondition|alma|asin|atan|atr|avg|barcolor|barssince|bgcolor|cci|ceil|change|cog|color|correlation|cos|cross|crossover|crossunder|cum|dayofmonth|dayofweek|dev|ema|exp|falling|fill|fixnan|floor|heikinashi|highest|highestbars|hline|hour|iff|indicator|input|kagi|library|linebreak|linreg|log|log10|lowest|lowestbars|macd|max|min|minute|mom|month|na|nz|offset|percentile_linear_interpolation|percentile_nearest_rank|percentrank|pivothigh|pivotlow|plot(arrow|bar|candle|char|shape)?|pointfigure|pow|renko|rising|rma|roc|round|rsi|sar|second|security|sign|sin|sma|sqrt|stdev|stoch|strategy|cancel|cancel_all|close|close_all|entry|exit|order|allow_entry_in|max_cons_loss_days|max_intraday_filled_orders|max_intraday_loss|max_position_size|study|sum|swma|tan|tickerid|time|timestamp|tostring|tr|tsi|valuewhen|variance|vwap|vwma|weekofyear|wma|year)+?(?=\\()",
+          "name": "entity.name.function.pine"
+        },
+        {
+          "match": "([a-zA-Z_][a-zA-Z0-9_]*)\\(.*\\)\\s(=>)\\s",
+          "captures": {
+            "1": {
+              "name": "support.function.pine"
+            },
+            "2": {
+              "name": "keyword.operator.assignment.pine"
+            }
+          }
+        }
+      ]
+    },
+    "operators": {
+      "patterns": [
+        {
+          "match": "(\\-|\\+|\\*|/|%)",
+          "name": "keyword.operator.arithmetic.pine"
+        },
+        {
+          "match": "(==|!=|<=|>=|<|>)",
+          "name": "keyword.operator.comparison.pine"
+        },
+        {
+          "match": "(\\?|\\:)",
+          "name": "keyword.operator.ternary.pine"
+        },
+        {
+          "match": "\\b(and|or|not)\\b",
+          "name": "keyword.operator.logical.pine"
+        },
+        {
+          "match": "=",
+          "name": "keyword.operator.assignment.pine"
+        }
+      ]
+    }
+  },
+  "scopeName": "source.pine"
 }
