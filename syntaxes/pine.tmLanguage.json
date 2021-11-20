@@ -7,7 +7,13 @@
       "name": "comment.pine"
     },
     {
+      "include": "#strings"
+    },
+    {
       "include": "#constants"
+    },
+    {
+      "include": "#declarations"
     },
     {
       "include": "#functions"
@@ -19,7 +25,7 @@
       "include": "#keywords"
     },
     {
-      "include": "#strings"
+      "include": "#imports"
     }
   ],
   "repository": {
@@ -69,10 +75,106 @@
         }
       ]
     },
+    "declarations": {
+      "patterns": [
+        {
+          "name":"meta.var.expr.pine",
+          "match": "^\\s*((var)\\s+)?((int|float|string|bool)\\s+)?(\\w+)\\s+(=)",
+          "captures": {
+            "2": {
+              "name": "storage.type.pine"
+            },
+            "4": {
+              "name": "support.type.primitive.pine"
+            },
+            "5": {
+              "name": "variable.other.readwrite.pine"
+            },
+            "6": {
+              "name": "keyword.operator.assignment"
+            }
+          }
+        },
+        {
+          "name":"meta.var.expr.pine",
+          "match": "^\\s*((var)\\s+)?((array|label|line)\\s+)(\\w+)\\s+(=)",
+          "captures": {
+            "2": {
+              "name": "storage.type.pine"
+            },
+            "4": {
+              "name": "support.type.builtin.pine"
+            },
+            "5": {
+              "name": "variable.other.readwrite.pine"
+            },
+            "6": {
+              "name": "keyword.operator.assignment"
+            }
+          }
+        },
+        {
+          "name":"meta.var.expr.pine",
+          "match": "^\\s*((var)\\s+)?(int|float|string|bool)\\b(\\s+(\\w+))?",
+          "captures": {
+            "2": {
+              "name": "storage.type.pine"
+            },
+            "3": {
+              "name": "support.type.primitive.pine"
+            },
+            "5": {
+              "name": "variable.other.readwrite.pine"
+            }
+          }
+        },
+        {
+          "name":"meta.var.expr.pine",
+          "match": "^\\s*((var)\\s+)?(array|label|line)\\b(?!\\.)(\\s+(\\w+))?",
+          "captures": {
+            "2": {
+              "name": "storage.type.pine"
+            },
+            "3": {
+              "name": "support.type.builtin.pine"
+            },
+            "5": {
+              "name": "variable.other.readwrite.pine"
+            }
+          }
+        },
+        {
+          "name":"storage.type.pine",
+          "match": "^\\s*((var)\\b)"
+        }
+      ]
+    },
+    "imports": {
+      "patterns": [
+        {
+          "name":"meta.import.pine",
+          "match": "^\\s*(import)\\s+([^/]+/[^/]+/\\d+)(\\s+(as)\\s+(\\w+))?\\s*$",
+          "captures": {
+            "1": {
+              "name": "keyword.control.pine"
+            },
+            "2": {
+              "name": "expr.import.pine"
+            },
+            "4": {
+              "name": "keyword.control.pine"
+            }, 
+            "5": {
+              "name": "variable.other.readwrite.alias.pine"
+            }
+          }
+        }
+      ]
+    },
     "functions": {
       "patterns": [
         {
-          "match": "\\b(abs|acos|alertcondition|alma|asin|atan|atr|avg|bar(color|since)|bb|bbw|bgcolor|bool|cci|ceil|change|cmo|cog|color|color\\.new|correlation|cos|cross|crossover|crossunder|cum|dayofmonth|dayofweek|dev|dmi|ema|exp|falling|fill|financial|fixnan|float|floor|heikinashi|highest|highestbars|hline|hma|hour|iff|input|int|kagi|kc|kcw|label|line|linebreak|linreg|log|log10|lowest|lowestbars|macd|max|max_bars_back|mfi|min|minute|mom|month|na|nz|offset|percentile_linear_interpolation|percentile_nearest_rank|pivothigh|pivotlow|plot|plotarrow|plotbar|plotcandle|plotchar|plotshape|pointfigure|pow|quandl|renko|rising|rma|roc|round|rsi|sar|second|security|sign|sin|sma|sqrt|stdev|stoch|str\\.replace_all|strategy|string|study|sum|supertrend|swma|tan|tickerid|time|timestamp|tostring|tr|tsi|valuewhen|variance|vwma|weekofyear|wma|wpr|year)(?=\\()",
+          "match": "\\b(abs|acos|alertcondition|alma|asin|atan|atr|avg|bar(color|since)|bb|bbw|bgcolor|bool|cci|ceil|change|cmo|cog|color|color\\.new|correlation|cos|cross|crossover|crossunder|cum|dayofmonth|dayofweek|dev|dmi|ema|exp|falling|fill|financial|fixnan|floor|heikinashi|highest|highestbars|hline|hma|hour|iff|input|int|kagi|kc|kcw|label|line|linebreak|linreg|log|log10|lowest|lowestbars|macd|max|max_bars_back|mfi|min|minute|mom|month|na|nz|offset|percentile_linear_interpolation|percentile_nearest_rank|pivothigh|pivotlow|plot|plotarrow|plotbar|plotcandle|plotchar|plotshape|pointfigure|pow|quandl|renko|rising|rma|roc|round|rsi|sar|second|security|sign|sin|sma|sqrt|stdev|stoch|str\\.replace_all|strategy|string|study|sum|supertrend|swma|tan|tickerid|time|timestamp|tostring|tr|tsi|valuewhen|variance|vwma|weekofyear|wma|wpr|year)(?=\\()",
           "captures": {
             "1": {
               "name": "support.function.pine"
