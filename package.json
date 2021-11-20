@@ -1,35 +1,44 @@
 {
-    "name": "pine-script-syntax-highlighting",
-    "displayName": "Pine Script Syntax Highlighting",
-    "description": "Syntax Highlighting for Pine Script",
-    "version": "0.1.5",
-    "publisher": "leifcr",
-    "license": "MIT",
-    "engines": {
-        "vscode": "^1.27.0"
-    },
-    "categories": [
-        "Programming Languages"
-    ],
-    "contributes": {
-        "languages": [{
-            "id": "pine",
-            "aliases": ["Pine Script", "pine"],
-            "extensions": [".pine"],
-            "configuration": "./language-configuration.json"
-        }],
-        "grammars": [{
-            "language": "pine",
-            "scopeName": "source.pine",
-            "path": "./syntaxes/pine.tmLanguage.json"
-        }]
-    },
-    "icon": "images/pinetreeicon.png",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/leifcr/pine-script-syntax-highlighting.git"
-    },
-    "bugs": {
-        "url": "https://github.com/leifcr/pine-script-syntax-highlighting/issues"
-    }
+	"name": "pine-script-syntax-highlighting",
+	"displayName": "Pine Script Syntax Highlighting",
+	"description": "Syntax Highlighting for Pine Script",
+	"version": "0.1.5",
+	"publisher": "leifcr",
+	"license": "MIT",
+	"engines": {
+		"vscode": "^1.27.0"
+	},
+	"categories": [
+		"Programming Languages"
+	],
+	"contributes": {
+		"languages": [
+			{
+				"id": "pine",
+				"aliases": [
+					"Pine Script",
+					"pine"
+				],
+				"extensions": [
+					".pine"
+				],
+				"configuration": "./language-configuration.json"
+			}
+		],
+		"grammars": [
+			{
+				"language": "pine",
+				"scopeName": "source.pine",
+				"path": "./syntaxes/pine.tmLanguage.json"
+			}
+		]
+	},
+	"icon": "images/pinetreeicon.png",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/leifcr/pine-script-syntax-highlighting.git"
+	},
+	"bugs": {
+		"url": "https://github.com/leifcr/pine-script-syntax-highlighting/issues"
+	}
 }
