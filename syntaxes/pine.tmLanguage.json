@@ -131,24 +131,24 @@
       "match": "\\s*,\\s*"
     },
     "functionParam": {
-      "name": "variable.parameter.pine",
       "patterns": [
         {
-          "begin": "(?<=(?:\\(|,|^)\\s*)((?:(?:simple|series)\\s+)?((int|float|string|bool)|(array|label|line)))\\s+(\\w+)\\s*(=)\\s*",
+          "name": "variable.parameter.pine",
+          "begin": "(?<=(?:\\(|,|^)\\s*)(((?:(?:simple|series)\\s+)?((int|float|string|bool)|(array|label|line)))(?:\\s+))?(\\w+)\\s*(=)\\s*",
           "beginCaptures": {
-            "1": {
+            "2": {
               "name": "meta.type.annotation.pine"
             },
-            "3": {
+            "4": {
               "name": "support.type.primitive.pine"
             },
-            "4": {
+            "5": {
               "name": "support.type.builtin.pine"
             },
-            "5": {
+            "6": {
               "name": "meta.definition.variable.name.pine"
             },
-            "6": {
+            "7": {
               "name": "keyword.operator.assignment.pine"
             }
           },
@@ -166,18 +166,19 @@
           "end": "(?=\\s*(?:$|,|\\)))"
         },
         {
-          "match": "(?<=(?:\\(|,|^)\\s*)((?:(?:simple|series)\\s+)?((int|float|string|bool)|(array|label|line)))\\s+(\\w+)(?=\\s*(?:$|,|\\)))",
+          "name": "variable.parameter.pine",
+          "match": "(?<=(?:\\(|,|^)\\s*)(((?:(?:simple|series)\\s+)?((int|float|string|bool)|(array|label|line)))(?:\\s+))?(\\w+)(?=\\s*(?:$|,|\\)))",
           "captures": {
-            "1": {
+            "2": {
               "name": "meta.type.annotation.pine"
             },
-            "3": {
+            "4": {
               "name": "support.type.primitive.pine"
             },
-            "4": {
+            "5": {
               "name": "support.type.builtin.pine"
             },
-            "5": {
+            "6": {
               "name": "meta.definition.variable.name.pine"
             }
           }
