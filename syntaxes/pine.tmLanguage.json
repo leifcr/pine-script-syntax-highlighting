@@ -13,13 +13,13 @@
       "include": "#constants"
     },
     {
-      "include": "#functionParam"
-    },
-    {
-      "include": "#declarations"
+      "include": "#functionCall"
     },
     {
       "include": "#functions"
+    },
+    {
+      "include": "#variables"
     },
     {
       "include": "#operators"
@@ -91,8 +91,16 @@
       ]
     },
     "number": {
-      "name": "constant.numeric.decimal.pine",
-      "match": "\\b(?:\\d+(?:\\.\\d+)?)\\b"
+      "patterns": [
+        {
+          "name": "constant.numeric.decimal.pine",
+          "match": "\\b(?:\\d+(?:\\.\\d+)?)\\b"
+        },
+        {
+          "name": "constant.numeric.integer.pine",
+          "match": "\\b\\d+\\b"
+        }        
+      ]
     },
     "literals": {
       "patterns": [
@@ -127,8 +135,8 @@
       }
     },
     "paramSeparator": {
-      "name": "punctuation.separator.parameter",
-      "match": "\\s*,\\s*"
+      "name": "punctuation.separator.parameter.pine",
+      "match": ","
     },
     "functionParam": {
       "patterns": [
@@ -154,13 +162,13 @@
           },
           "patterns": [
             {
-              "include": "#string"
+              "include": "#literals"
             },
             {
-              "include": "#boolean"
+              "include": "constants"
             },
             {
-              "include": "#number"
+              "include": "#paramSeparator"
             }
           ],
           "end": "(?=\\s*(?:$|,|\\)))"
@@ -185,7 +193,30 @@
         }
       ]
     },
-    "declarations": {
+    "functionParams": {
+      "name": "meta.parameters.pine",
+      "begin": "\\(",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.definition.parameters.begin.pine"
+        }
+      },
+      "end": "\\)",
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.definition.parameters.end.pine"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#functionParam"
+        },
+        {
+          "include": "#paramSeparator"
+        }
+      ]
+    },
+    "variables": {
       "patterns": [
         {
           "name": "meta.var.expr.pine",
@@ -281,10 +312,66 @@
         }
       ]
     },
+    "functionCall": {
+      "patterns": [
+        {
+          "name": "meta.function-call.pine",
+          "begin": "(?<=(?:^|=)\\s*|\\w+\\.)(\\w+)(?=\\()",
+          "beginCaptures": {
+            "1": { "name": "entity.name.function" }
+          },
+          "end": "(?<=\\))\\s*$",
+          "patterns": [
+            {
+              "include": "#literals"
+            },
+            {
+              "include": "#constants"
+            },
+            {
+              "include": "#functionCall"
+            },
+            {
+              "include": "#paramSeparator"
+            },
+            {
+              "match": "(?<=\\s+|\\(\\s*|,\\s*)(\\w+)(?=\\s*=)",
+              "captures": {
+                "1" : {
+                  "name":"entity.name.variable.parameter"
+                }
+              }
+            },
+            {
+              "name": "variable.other.readwrite.pine",
+              "match": "\\w+"
+            }
+          ]
+        }
+      ]
+    },
     "functions": {
       "patterns": [
         {
-          "match": "\\b(abs|acos|alertcondition|alma|asin|atan|atr|avg|bar(color|since)|bb|bbw|bgcolor|bool|cci|ceil|change|cmo|cog|color|color\\.new|correlation|cos|cross|crossover|crossunder|cum|dayofmonth|dayofweek|dev|dmi|ema|exp|falling|fill|financial|fixnan|floor|heikinashi|highest|highestbars|hline|hma|hour|iff|input|int|kagi|kc|kcw|label|line|linebreak|linreg|log|log10|lowest|lowestbars|macd|max|max_bars_back|mfi|min|minute|mom|month|na|nz|offset|percentile_linear_interpolation|percentile_nearest_rank|pivothigh|pivotlow|plot|plotarrow|plotbar|plotcandle|plotchar|plotshape|pointfigure|pow|quandl|renko|rising|rma|roc|round|rsi|sar|second|security|sign|sin|sma|sqrt|stdev|stoch|str\\.replace_all|strategy|string|study|sum|supertrend|swma|tan|tickerid|time|timestamp|tostring|tr|tsi|valuewhen|variance|vwma|weekofyear|wma|wpr|year)(?=\\()",
+          "name": "meta.definition.function.pine",
+          "begin": "^((export)\\s+)?(\\w+)(?=\\()",
+          "beginCaptures": {
+            "2": { "name": "keyword.control.export.pine" },
+            "3": { "name": "entity.name.function" }
+          },
+          "end": "(?<=\\))\\s*=>",
+          "patterns": [
+            {
+              "include": "#functionParams"
+            }
+          ]
+        }
+      ]
+    },
+    "functionsX": {
+      "patterns": [
+        {
+          "match": "\\b(abs|acos|alma|asin|atan|atr|avg|bar(color|since)|bb|bbw|bgcolor|bool|cci|ceil|change|cmo|cog|color|color\\.new|correlation|cos|cross|crossover|crossunder|cum|dayofmonth|dayofweek|dev|dmi|ema|exp|falling|fill|financial|fixnan|floor|heikinashi|highest|highestbars|hline|hma|hour|iff|input|int|kagi|kc|kcw|label|line|linebreak|linreg|log|log10|lowest|lowestbars|macd|max|max_bars_back|mfi|min|minute|mom|month|na|nz|offset|percentile_linear_interpolation|percentile_nearest_rank|pivothigh|pivotlow|plot|plotarrow|plotbar|plotcandle|plotchar|plotshape|pointfigure|pow|quandl|renko|rising|rma|roc|round|rsi|sar|second|security|sign|sin|sma|sqrt|stdev|stoch|str\\.replace_all|strategy|string|study|sum|supertrend|swma|tan|tickerid|time|timestamp|tostring|tr|tsi|valuewhen|variance|vwma|weekofyear|wma|wpr|year)(?=\\()",
           "captures": {
             "1": {
               "name": "support.function.pine"
@@ -330,26 +417,11 @@
               "name": "support.function.pine"
             }
           }
-        },
-        {
-          "match": "([a-zA-Z_][a-zA-Z0-9_]*)\\(.*\\)\\s(=>)\\s",
-          "captures": {
-            "1": {
-              "name": "support.function.pine"
-            },
-            "2": {
-              "name": "keyword.operator.assignment.pine"
-            }
-          }
         }
       ]
     },
     "constants": {
       "patterns": [
-        {
-          "match": "\\b(true|false)\\b",
-          "name": "constant.language.pine"
-        },
         {
           "match": "\\b(accdist|bar_index|close|dayofmonth|dayofweek|high|hl2|hlc3|hour|iii|low|minute|month|na|nvi|obv|ohlc4|open|pvi|pvt|second|time|time_close|timenow|tr|volume|vwap|wad|weekofyear|wvad|year)\\b",
           "name": "constant.language.pine"
@@ -476,12 +548,9 @@
         },
         {
           "match": "#[a-fA-F0-9]{6}",
-          "name": "contstant.support.pine"
-        },
-        {
-          "match": "\\b([0-9]+)\\b",
-          "name": "constant.numeric.pine"
+          "name": "constant.support.pine"
         }
+
       ]
     },
     "operators": {
