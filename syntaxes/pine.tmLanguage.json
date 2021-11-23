@@ -253,6 +253,23 @@
     "variables": {
       "patterns": [
         {
+          "match": "^\\s*(var)\\s+(\\w+)\\s*([+-:])?(=)?",
+          "captures": {
+            "1":{
+              "name": "storage.type.pine"
+            },
+            "2": {
+              "name": "variable.other.readwrite.pine"
+            },
+            "3": {
+              "name": "invalid.pine"
+            },
+            "4": {
+              "name": "keyword.operator.assignment.pine"
+            }
+          }
+        },
+        {
           "name": "meta.var.expr.pine",
           "match": "^\\s*((var)\\s+)?((int|float|string|bool)\\s+)?(\\w+)\\s+(=)",
           "captures": {
@@ -272,7 +289,7 @@
         },
         {
           "name": "meta.var.expr.pine",
-          "match": "^\\s*((var)\\s+)?((array|label|line)\\s+)(\\w+)\\s+(=)",
+          "match": "^\\s*((var)\\s+)?((array|label|line)\\s+)(\\w+)\\s+([+-:])?(=)",
           "captures": {
             "2": {
               "name": "storage.type.pine"
@@ -284,6 +301,9 @@
               "name": "variable.other.readwrite.pine"
             },
             "6": {
+              "name": "invalid.pine"
+            },
+            "7": {
               "name": "keyword.operator.assignment"
             }
           }
