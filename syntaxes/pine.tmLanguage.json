@@ -1018,7 +1018,7 @@
       "patterns": [
         {
           "name": "keyword.control.pine",
-          "match": "\\b(if|else|while|for|return)\\b"
+          "match": "\\b(if|else|switch|while|for|return)\\b"
         }
       ]
     },
