@@ -180,6 +180,65 @@
         }
       ]
     },
+    "exportedFunctionParam": {
+      "patterns": [
+        {
+          "name": "variable.parameter.pine",
+          "begin": "(?<=(?:\\(|,|^)\\s*)(((?:(?:simple|series)\\s+)?((int|float|string|bool)|(array|label|line|color)))(?:\\s+))(\\w+)\\s*(=)\\s*",
+          "beginCaptures": {
+            "2": {
+              "name": "meta.type.annotation.pine"
+            },
+            "4": {
+              "name": "support.type.primitive.pine"
+            },
+            "5": {
+              "name": "support.type.builtin.pine"
+            },
+            "6": {
+              "name": "meta.definition.variable.name.pine"
+            },
+            "7": {
+              "name": "keyword.operator.assignment.pine"
+            }
+          },
+          "patterns": [
+            {
+              "include": "#literals"
+            },
+            {
+              "include": "#constants"
+            },
+            {
+              "include": "#paramSeparator"
+            }
+          ],
+          "end": "(?=\\s*(?:$|,|\\)))"
+        },
+        {
+          "name": "variable.parameter.pine",
+          "match": "(?<=(?:\\(|,|^)\\s*)(((?:(?:simple|series)\\s+)?((int|float|string|bool)|(array|label|line|color)))(?:\\s+))(\\w+)(?=\\s*(?:$|,|\\)))",
+          "captures": {
+            "2": {
+              "name": "meta.type.annotation.pine"
+            },
+            "4": {
+              "name": "support.type.primitive.pine"
+            },
+            "5": {
+              "name": "support.type.builtin.pine"
+            },
+            "6": {
+              "name": "meta.definition.variable.name.pine"
+            }
+          }
+        },
+        {
+          "name": "invalid.variable.parameter.pine",
+          "match": "(?<=(?:\\(|,|^)\\s*)(\\w+)(?=\\s*(?:$|,|\\)))"
+        }
+      ]
+    },    
     "functionCallParam": {
       "patterns": [
         {
@@ -205,6 +264,29 @@
         {
           "name": "variable.other.readwrite.pine",
           "match": "\\w+"
+        }
+      ]
+    },
+    "exportedFunctionParams": {
+      "name": "meta.parameters.pine",
+      "begin": "\\(",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.definition.parameters.begin.pine"
+        }
+      },
+      "end": "\\)",
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.definition.parameters.end.pine"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#exportedFunctionParam"
+        },
+        {
+          "include": "#paramSeparator"
         }
       ]
     },
@@ -399,10 +481,23 @@
       "patterns": [
         {
           "name": "meta.definition.function.pine",
-          "begin": "^((export)\\s+)?(\\w+)(?=\\()",
+          "begin": "^(export)\\s+(\\w+)(?=\\()",
           "beginCaptures": {
-            "2": { "name": "keyword.control.export.pine" },
-            "3": { "name": "entity.name.function" }
+            "1": { "name": "keyword.control.export.pine" },
+            "2": { "name": "entity.name.function" }
+          },
+          "end": "(?<=\\))\\s*=>",
+          "patterns": [
+            {
+              "include": "#exportedFunctionParams"
+            }
+          ]
+        },
+        {
+          "name": "meta.definition.function.pine",
+          "begin": "^(\\w+)(?=\\()",
+          "beginCaptures": {
+            "1": { "name": "entity.name.function" }
           },
           "end": "(?<=\\))\\s*=>",
           "patterns": [
