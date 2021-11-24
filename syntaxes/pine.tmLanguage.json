@@ -698,7 +698,7 @@
         },
         {
           "name": "meta.function-call",
-          "begin": "\\b(array)(\\.)((avg|clear|concat|copy|covariance|fill|get|includes|indexof|insert|lastindexof|max|median|min|mode|new_bool|new_color|new_float|new_int|pop|push|remove|reverse|set|shift|size|slice|sort|standardize|stdev|sum|unshift|variance)|(\\w+))(?=\\()",
+          "begin": "\\b(array)(\\.)((avg|clear|concat|copy|covariance|fill|get|includes|indexof|insert|lastindexof|max|median|min|mode|new_(?:bool|float|int|string|color|line|label)|pop|push|remove|reverse|set|shift|size|slice|sort|standardize|stdev|sum|unshift|variance)|(\\w+))(?=\\()",
           "beginCaptures": {
             "1" : { "name" : "support.class.builtin.pine" },
             "2" : { "name" : "punctuation.accessor.pine" },
