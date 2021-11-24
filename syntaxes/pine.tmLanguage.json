@@ -417,11 +417,12 @@
       "patterns": [
         {
           "name": "meta.function-call",
-          "begin": "\\b(ta)(\\.)(alma|atr|bb|bbw|cci|cmo|cog|dmi|ema|hma|kc|kcw|linreg|macd|mfi|mom|rma|roc|rsi|sar|sma|stoch|supertrend|swma|tr|tsi|vwap|vwma|wma|wpr|barsince|change|correlation|cross|crossover|crossunder|cum|dev|falling|highest|highestbars|lowest|lowestbars|median|mode|percentile_linear_interpolation|percentile_nearest_rank|percentrank|pivothigh|pivotlow|range|rising|stdev|valuewhen|variance)(?=\\()",
+          "begin": "\\b(ta)(\\.)((alma|atr|bb|bbw|cci|cmo|cog|dmi|ema|hma|kc|kcw|linreg|macd|mfi|mom|rma|roc|rsi|sar|sma|stoch|supertrend|swma|tr|tsi|vwap|vwma|wma|wpr|barsince|change|correlation|cross|crossover|crossunder|cum|dev|falling|highest|highestbars|lowest|lowestbars|median|mode|percentile_linear_interpolation|percentile_nearest_rank|percentrank|pivothigh|pivotlow|range|rising|stdev|valuewhen|variance)|(\\w+))(?=\\()",
           "beginCaptures": {
             "1" : { "name" : "constant.language.pine" },
             "2" : { "name" : "punctuation.accessor.pine" },
-            "3" : { "name" : "support.function.ta.pine" }
+            "4" : { "name" : "support.function.ta.pine" },
+            "5" : { "name" : "invalid.function.ta.pine" }
           },
           "end":"(?<=\\))",
           "patterns": [
@@ -442,11 +443,12 @@
         },
         {
           "name": "meta.function-call",
-          "begin": "\\b(math)(\\.)(abs|acos|cos|asin|sin|atan|tan|ceil|floor|exp|log|log10|round_to_mintick|sign|sqrt|avg|max|min|pow|random|round|sum|todegrees|toradians)(?=\\()",
+          "begin": "\\b(math)(\\.)((abs|acos|cos|asin|sin|atan|tan|ceil|floor|exp|log|log10|round_to_mintick|sign|sqrt|avg|max|min|pow|random|round|sum|todegrees|toradians)|(\\w+))(?=\\()",
           "beginCaptures": {
             "1" : { "name" : "constant.language.pine" },
             "2" : { "name" : "punctuation.accessor.pine" },
-            "3" : { "name" : "support.function.math.pine" }
+            "4" : { "name" : "support.function.math.pine" },
+            "5" : { "name" : "invalid.function.math.pine" }
           },
           "end":"(?<=\\))",
           "patterns": [
@@ -459,11 +461,12 @@
         },
         {
           "name": "meta.function-call",
-          "begin": "\\b(str)(\\.)(tostring|tonumber)(?=\\()",
+          "begin": "\\b(str)(\\.)((tostring|tonumber)|(\\w+))(?=\\()",
           "beginCaptures": {
             "1" : { "name" : "constant.language.pine" },
             "2" : { "name" : "punctuation.accessor.pine" },
-            "3" : { "name" : "support.function.str.pine" }
+            "4" : { "name" : "support.function.str.pine" },
+            "5" : { "name" : "invalid.function.str.pine" }
           },
           "end":"(?<=\\))",
           "patterns": [
@@ -476,11 +479,12 @@
         },
         {
           "name": "meta.function-call",
-          "begin": "\\b(ticker)(\\.)(heikinashi|kagi|linebreak|pointfigure|renko|new)(?=\\()",
+          "begin": "\\b(ticker)(\\.)((heikinashi|kagi|linebreak|pointfigure|renko|new)|(\\w+))(?=\\()",
           "beginCaptures": {
             "1" : { "name" : "constant.language.pine" },
             "2" : { "name" : "punctuation.accessor.pine" },
-            "3" : { "name" : "support.function.ticker.pine" }
+            "4" : { "name" : "support.function.ticker.pine" },
+            "5" : { "name" : "invalid.function.ticker.pine" }
           },
           "end":"(?<=\\))",
           "patterns": [
@@ -493,11 +497,12 @@
         },
         {
           "name": "meta.function-call",
-          "begin": "\\b(request)(\\.)(financial|quandl|security|splits|dividends|earnings)(?=\\()",
+          "begin": "\\b(request)(\\.)((financial|quandl|security|splits|dividends|earnings)|(\\w+))(?=\\()",
           "beginCaptures": {
             "1" : { "name" : "constant.language.pine" },
             "2" : { "name" : "punctuation.accessor.pine" },
-            "3" : { "name" : "support.function.request.pine" }
+            "4" : { "name" : "support.function.request.pine" },
+            "5" : { "name" : "invalid.function.request.pine" }
           },
           "end":"(?<=\\))",
           "patterns": [
@@ -510,11 +515,12 @@
         },
         {
           "name": "meta.function-call",
-          "begin": "\\b(input)(\\.)(bool|int|float|string|color|timeframe|session|source|symbol|time)(?=\\()",
+          "begin": "\\b(input)(\\.)((bool|int|float|string|color|timeframe|session|source|symbol|time)|(\\w+))(?=\\()",
           "beginCaptures": {
             "1" : { "name" : "constant.language.pine" },
             "2" : { "name" : "punctuation.accessor.pine" },
-            "3" : { "name" : "support.function.pine" }
+            "4" : { "name" : "support.function.input.pine" },
+            "5" : { "name" : "invalid.function.input.pine" }
           },
           "end":"(?<=\\))",
           "patterns": [
@@ -527,13 +533,14 @@
         },
         {
           "name": "meta.function-call",
-          "begin": "\\b(strategy)(\\.)(risk)(\\.)(allow_entry_in|max_cons_loss_days|max_drawdown|max_intraday_filled_orders|max_intraday_loss|max_position_size)(?=\\()",
+          "begin": "\\b(strategy)(\\.)(risk)(\\.)((allow_entry_in|max_cons_loss_days|max_drawdown|max_intraday_filled_orders|max_intraday_loss|max_position_size)|(\\w+))(?=\\()",
           "beginCaptures": {
             "1" : { "name" : "constant.language.pine" },
             "2" : { "name" : "punctuation.accessor.pine" },
             "3" : { "name" : "constant.language.pine" },
             "4" : { "name" : "punctuation.accessor.pine" },
-            "5" : { "name" : "support.function.strategy.risk.pine" }
+            "6" : { "name" : "support.function.strategy.risk.pine" },
+            "7" : { "name" : "invalid.function.strategy.risk.pine" }
           },
           "end":"(?<=\\))",
           "patterns": [
@@ -542,11 +549,12 @@
         },
         {
           "name": "meta.function-call",
-          "begin": "\\b(strategy)(\\.)(cancel|cancel_all|close|close_all|entry|exit|order)(?=\\()",
+          "begin": "\\b(strategy)(\\.)((cancel|cancel_all|close|close_all|entry|exit|order)|(\\w+))(?=\\()",
           "beginCaptures": {
             "1" : { "name" : "constant.language.pine" },
             "2" : { "name" : "punctuation.accessor.pine" },
-            "3" : { "name" : "support.function.strategy.pine" }
+            "4" : { "name" : "support.function.strategy.pine" },
+            "5" : { "name" : "invalid.function.strategy.pine" }
           },
           "end":"(?<=\\))",
           "patterns": [
@@ -559,11 +567,12 @@
         },
         {
           "name": "meta.function-call",
-          "begin": "\\b(line)(\\.)(delete|get_price|get_x1|get_x2|get_y1|get_y2|new|set_color|set_extend|set_style|set_width|set_x1|set_x2|set_xloc|set_xy1|set_xy2|set_y1|set_y2)(?=\\()",
+          "begin": "\\b(line)(\\.)((delete|get_price|get_x1|get_x2|get_y1|get_y2|new|set_color|set_extend|set_style|set_width|set_x1|set_x2|set_xloc|set_xy1|set_xy2|set_y1|set_y2)|(\\w+))(?=\\()",
           "beginCaptures": {
             "1" : { "name" : "support.class.builtin.pine" },
             "2" : { "name" : "punctuation.accessor.pine" },
-            "3" : { "name" : "support.function.line.pine" }
+            "4" : { "name" : "support.function.line.pine" },
+            "5" : { "name" : "invalid.function.line.pine" }
           },
           "end":"(?<=\\))",
           "patterns": [
@@ -576,11 +585,12 @@
         },
         {
           "name": "meta.function-call",
-          "begin": "\\b(label)(\\.)(delete|get_text|get_x|get_y|new|set_color|set_size|set_text|set_textalign|set_textcolor|set_tooltip|set_x|set_xloc|set_xy|set_y|set_yloc)(?=\\()",
+          "begin": "\\b(label)(\\.)((delete|get_text|get_x|get_y|new|set_color|set_size|set_text|set_textalign|set_textcolor|set_tooltip|set_x|set_xloc|set_xy|set_y|set_yloc)|(\\w+))(?=\\()",
           "beginCaptures": {
             "1" : { "name" : "support.class.builtin.pine" },
             "2" : { "name" : "punctuation.accessor.pine" },
-            "3" : { "name" : "support.function.label.pine" }
+            "4" : { "name" : "support.function.label.pine" },
+            "5" : { "name" : "invalid.function.label.pine" }
           },
           "end":"(?<=\\))",
           "patterns": [
@@ -593,11 +603,12 @@
         },
         {
           "name": "meta.function-call",
-          "begin": "\\b(array)(\\.)(avg|clear|concat|copy|covariance|fill|get|includes|indexof|insert|lastindexof|max|median|min|mode|new_bool|new_color|new_float|new_int|pop|push|remove|reverse|set|shift|size|slice|sort|standardize|stdev|sum|unshift|variance)(?=\\()",
+          "begin": "\\b(array)(\\.)((avg|clear|concat|copy|covariance|fill|get|includes|indexof|insert|lastindexof|max|median|min|mode|new_bool|new_color|new_float|new_int|pop|push|remove|reverse|set|shift|size|slice|sort|standardize|stdev|sum|unshift|variance)|(\\w+))(?=\\()",
           "beginCaptures": {
             "1" : { "name" : "support.class.builtin.pine" },
             "2" : { "name" : "punctuation.accessor.pine" },
-            "3" : { "name" : "support.function.array.pine" }
+            "4" : { "name" : "support.function.array.pine" },
+            "5" : { "name" : "invalid.function.array.pine" }
           },
           "end":"(?<=\\))",
           "patterns": [
@@ -610,11 +621,12 @@
         },
         {
           "name": "meta.function-call",
-          "begin": "\\b(color)(\\.)(new|rgb|r|g|b|t|from_gradient)(?=\\()",
+          "begin": "\\b(color)(\\.)((new|rgb|r|g|b|t|from_gradient)|(\\w+))(?=\\()",
           "beginCaptures": {
             "1" : { "name" : "support.class.builtin.pine" },
             "2" : { "name" : "punctuation.accessor.pine" },
-            "3" : { "name" : "support.function.color.pine" }
+            "4" : { "name" : "support.function.color.pine" },
+            "5" : { "name" : "invalid.function.color.pine" }
           },
           "end":"(?<=\\))",
           "patterns": [
