@@ -486,7 +486,10 @@
             "1": { "name": "keyword.control.export.pine" },
             "2": { "name": "entity.name.function" }
           },
-          "end": "(?<=\\))\\s*=>",
+          "end": "(?<=\\))\\s*(=>)",
+          "endCaptures": {
+            "1": { "name": "storage.type.function.arrow.pine" }
+          },
           "patterns": [
             {
               "include": "#exportedFunctionParams"
@@ -499,7 +502,10 @@
           "beginCaptures": {
             "1": { "name": "entity.name.function" }
           },
-          "end": "(?<=\\))\\s*=>",
+          "end": "(?<=\\))\\s*(=>)",
+          "endCaptures": {
+            "1": { "name": "storage.type.function.arrow.pine" }
+          },
           "patterns": [
             {
               "include": "#functionParams"
@@ -997,7 +1003,7 @@
           "name": "keyword.operator.arithmetic.pine"
         },
         {
-          "match": "==|!=|<=|>=|<|>",
+          "match": "==|!=|<=|>=|<|(?<!=)>",
           "name": "keyword.operator.comparison.pine"
         },
         {
@@ -1009,7 +1015,7 @@
           "name": "keyword.operator.logical.pine"
         },
         {
-          "match": "=",
+          "match": "=(?!>)",
           "name": "keyword.operator.assignment.pine"
         }
       ]
