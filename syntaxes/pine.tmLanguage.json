@@ -341,7 +341,7 @@
     "variables": {
       "patterns": [
         {
-          "match": "^\\s*(var)\\s+(\\w+)\\s*([+-:])?(=(?!>))?",
+          "match": "^\\s*(var)\\s+([a-zA-Z]\\w*)\\s*([+-:])?(=(?!>))?",
           "captures": {
             "1":{
               "name": "storage.type.pine"
@@ -359,7 +359,7 @@
         },
         {
           "name": "meta.var.expr.pine",
-          "match": "^\\s*((var)\\s+)?((int|float|string|bool)\\s+)?(\\w+)\\s+(=(?!>))",
+          "match": "^\\s*((var)\\s+)?((int|float|string|bool)\\s+)?([a-zA-Z]\\w*)\\s+(=(?!>))",
           "captures": {
             "2": {
               "name": "storage.type.pine"
@@ -377,7 +377,7 @@
         },
         {
           "name": "meta.var.expr.pine",
-          "match": "^\\s*((var)\\s+)?((array|label|line|color)\\s+)(\\w+)\\s+([+-:])?(=(?!>))",
+          "match": "^\\s*((var)\\s+)?((array|label|line|color)\\s+)([a-zA-Z]\\w*)\\s+([+-:])?(=(?!>))",
           "captures": {
             "2": {
               "name": "storage.type.pine"
@@ -398,7 +398,7 @@
         },
         {
           "name": "meta.var.expr.pine",
-          "match": "^\\s*((var)\\s+)?(int|float|string|bool)\\b(\\s+(\\w+))?",
+          "match": "^\\s*((var)\\s+)?(int|float|string|bool)\\b(\\s+([a-zA-Z]\\w*))?",
           "captures": {
             "2": {
               "name": "storage.type.pine"
@@ -413,7 +413,7 @@
         },
         {
           "name": "meta.var.expr.pine",
-          "match": "^\\s*((var)\\s+)?(array|label|line|color)\\b(?!\\.)(\\s+(\\w+))?",
+          "match": "^\\s*((var)\\s+)?(array|label|line|color)\\b(?!\\.)(\\s+([a-zA-Z]\\w*))?",
           "captures": {
             "2": {
               "name": "storage.type.pine"
@@ -431,7 +431,7 @@
           "match": "^\\s*((var)\\b)"
         },
         {
-          "match": "^\\s*(\\w+)\\s*([+-:]=)",
+          "match": "^\\s*([a-zA-Z]\\w*)\\s*([+-:]=)",
           "captures": {
             "1": {
               "name": "variable.other.readwrite.pine"
