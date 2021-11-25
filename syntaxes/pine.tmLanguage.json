@@ -129,7 +129,7 @@
       "patterns": [
         {
           "name": "variable.parameter.pine",
-          "begin": "(?<=(?:\\(|,|^)\\s*)(((?:(?:simple|series)\\s+)?((int|float|string|bool)|(array|label|line|color)))(?:\\s+))?(\\w+)\\s*(=)\\s*",
+          "begin": "(?<=(?:\\(\\s*|,\\s*|^\\s+))(((?:(?:simple|series)\\s+)?((int|float|string|bool)|(array|label|line|color)))(?:\\s+))?(\\w+)\\s*(=)\\s*",
           "beginCaptures": {
             "2": {
               "name": "meta.type.annotation.pine"
@@ -162,7 +162,7 @@
         },
         {
           "name": "variable.parameter.pine",
-          "match": "(?<=(?:\\(|,|^)\\s*)(((?:(?:simple|series)\\s+)?((int|float|string|bool)|(array|label|line|color)))(?:\\s+))?(\\w+)(?=\\s*(?:$|,|\\)))",
+          "match": "(?<=(?:\\(\\s*|,\\s*|^\\s+))(((?:(?:simple|series)\\s+)?((int|float|string|bool)|(array|label|line|color)))(?:\\s+))?(\\w+)(?=\\s*(?:$|,|\\)))",
           "captures": {
             "2": {
               "name": "meta.type.annotation.pine"
@@ -184,7 +184,7 @@
       "patterns": [
         {
           "name": "variable.parameter.pine",
-          "begin": "(?<=(?:\\(|,|^)\\s*)(((?:(?:simple|series)\\s+)?((int|float|string|bool)|(array|label|line|color)))(?:\\s+))(\\w+)\\s*(=)\\s*",
+          "begin": "(?<=(?:\\(\\s*|,\\s*|^\\s+))(((?:(?:simple|series)\\s+)?((int|float|string|bool)|(array|label|line|color)))(?:\\s+))(\\w+)\\s*(=)\\s*",
           "beginCaptures": {
             "2": {
               "name": "meta.type.annotation.pine"
@@ -217,7 +217,7 @@
         },
         {
           "name": "variable.parameter.pine",
-          "match": "(?<=(?:\\(|,|^)\\s*)(((?:(?:simple|series)\\s+)?((int|float|string|bool)|(array|label|line|color)))(?:\\s+))(\\w+)(?=\\s*(?:$|,|\\)))",
+          "match": "(?<=(?:\\(\\s*|,\\s*|^\\s+))(((?:(?:simple|series)\\s+)?((int|float|string|bool)|(array|label|line|color)))(?:\\s+))(\\w+)(?=\\s*(?:$|,|\\)))",
           "captures": {
             "2": {
               "name": "meta.type.annotation.pine"
@@ -444,7 +444,7 @@
       "patterns": [
         {
           "name": "meta.import.pine",
-          "match": "^\\s*(import)\\s+([^/]+/[^/]+/\\d+)(\\s+(as)\\s+(\\w+))?\\s*$",
+          "match": "^(import)\\s+([^/]+/[^/]+/\\d+)(\\s+(as)\\s+(\\w+))?\\s*$",
           "captures": {
             "1": {
               "name": "keyword.control.pine"
