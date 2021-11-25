@@ -469,7 +469,7 @@
       "patterns": [
         {
           "name": "meta.function-call.pine",
-          "begin": "(?<=(?:^|=)\\s*|\\w+\\.)(\\w+)(?=\\()",
+          "begin": "(?<=(?:^|=)\\s*(?:\\bnot\\s+)?(?:\\w+\\.)?)(\\w+)(?=\\()",
           "beginCaptures": {
             "1": { "name": "entity.name.function" }
           },
