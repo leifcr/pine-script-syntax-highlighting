@@ -251,6 +251,9 @@
           "include": "#builtins"
         },
         {
+          "include": "#operators"
+        },
+        {
           "include": "#functionCall"
         },
         {
