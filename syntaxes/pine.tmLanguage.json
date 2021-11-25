@@ -1027,6 +1027,10 @@
         {
           "name": "storage.type.function.arrow.pine",
           "match": "=>"
+        },
+        {
+          "name": "invalid.operator.pine",
+          "match": "[&|]"
         }
       ]
     },
