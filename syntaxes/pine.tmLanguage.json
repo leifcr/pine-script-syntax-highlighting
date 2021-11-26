@@ -873,14 +873,6 @@
           }
         },
         {
-          "match": "\\b(input)(\\.)(bool|color|float|integer|resolution|session|source|string|symbol)\\b",
-          "captures": {
-            "1" : { "name" : "support.class.builtin.pine" },
-            "2" : { "name" : "punctuation.accessor.pine" },
-            "3" : { "name" : "constant.language.pine" }
-          }
-        },
-        {
           "match": "\\b(label)(\\.)(style_(arrowdown|arrowup|circle|cross|diamond|flag|label_center|label_down|label_left|label_lower_left|label_lower_right|label_right|label_up|label_upper_left|label_upper_right|none|square|triangledown|triangleup|xcross))\\b",
           "captures": {
             "1" : { "name" : "support.class.builtin.pine" },
