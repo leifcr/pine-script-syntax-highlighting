@@ -743,6 +743,24 @@
         {
           "name": "support.class.builtin.pine",
           "match": "\\b(color)\\b"
+        },
+        {
+          "name": "meta.function-call",
+          "begin": "\\b(runtime)(\\.)((error)|(\\w+))(?=\\()",
+          "beginCaptures": {
+            "1" : { "name" : "support.class.builtin.pine" },
+            "2" : { "name" : "punctuation.accessor.pine" },
+            "4" : { "name" : "support.function.color.pine" },
+            "5" : { "name" : "invalid.function.color.pine" }
+          },
+          "end":"(?<=\\))",
+          "patterns": [
+            { "include": "#functionCallParams" }
+          ]
+        },
+        {
+          "name": "support.class.builtin.pine",
+          "match": "\\b(error)\\b"
         }
       ]
     },
