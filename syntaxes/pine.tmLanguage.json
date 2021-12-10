@@ -692,7 +692,7 @@
         },
         {
           "name": "meta.function-call",
-          "begin": "\\b(label)(\\.)((delete|get_text|get_x|get_y|new|set_color|set_size|set_text|set_textalign|set_textcolor|set_tooltip|set_x|set_xloc|set_xy|set_y|set_yloc)|(\\w+))(?=\\()",
+          "begin": "\\b(label)(\\.)((delete|get_text|get_x|get_y|new|set_color|set_size|set_text|set_textalign|set_textcolor|set_tooltip|set_x|set_xloc|set_xy|set_y|set_yloc|set_style)|(\\w+))(?=\\()",
           "beginCaptures": {
             "1" : { "name" : "support.class.builtin.pine" },
             "2" : { "name" : "punctuation.accessor.pine" },
