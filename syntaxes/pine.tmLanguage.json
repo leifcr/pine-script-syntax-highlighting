@@ -692,6 +692,24 @@
         },
         {
           "name": "meta.function-call",
+          "begin": "\\b(box)(\\.)((new|delete|set_top|set_text|set_text_valign|set_text_halign|set_text_size|set_text_color|set_color|set_extend|set_style|set_width|set_right_bottom|set_right|set_lefttop|set_left|set_extend|set_bottom|set_border_width|set_border_style|set_border_color|set_bgcolor|get_top|get_right|get_left|get_bottom)|(\\w+))(?=\\()",
+          "beginCaptures": {
+            "1" : { "name" : "support.class.builtin.pine" },
+            "2" : { "name" : "punctuation.accessor.pine" },
+            "4" : { "name" : "support.function.box.pine" },
+            "5" : { "name" : "invalid.function.box.pine" }
+          },
+          "end":"(?<=\\))",
+          "patterns": [
+            { "include": "#functionCallParams" }
+          ]
+        },
+        {
+          "name": "support.class.builtin.pine",
+          "match": "\\b(box)\\b"
+        },
+        {
+          "name": "meta.function-call",
           "begin": "\\b(label)(\\.)((delete|get_text|get_x|get_y|new|set_color|set_size|set_text|set_textalign|set_textcolor|set_tooltip|set_x|set_xloc|set_xy|set_y|set_yloc|set_style)|(\\w+))(?=\\()",
           "beginCaptures": {
             "1" : { "name" : "support.class.builtin.pine" },
