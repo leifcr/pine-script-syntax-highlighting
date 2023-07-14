@@ -1,3 +1,7 @@
+# Archived
+
+Project is no longer maintained.
+
 # Pine script syntax highlighting for VS Code
 
 ![Pinetree](images/pinetreeicon.png)
